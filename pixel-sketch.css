@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1{
+    align-self: center;
+    margin: 0 auto auto auto;
+}
+
+#container{
+
+}
+
+.container{
+
+}
+
+#tools{
+
+}
+
+button{
+
+}
+
+#clear{
+    
+}
