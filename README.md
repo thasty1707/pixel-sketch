@@ -1,1 +1,3 @@
 # pixel-sketch
+
+This should be a browser-based version of an Etch-A-Sketch toy. Drawing is done with mouseover events in a grid. Number of squares in the grid should be customizable, but the overall size of the grid within the html <body> should remain the same, regardless of the number of squares. Squares should change color as the mouse hovers over them. A reset button should be available to clear the grid of any "drawings."
