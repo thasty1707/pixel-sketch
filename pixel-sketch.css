@@ -38,9 +38,9 @@ h1{
     grid-template:
         'toBlack' 'darken' 'colorful' 'clear'
         'sizeLabel' 'sizeBar' 'sizeBar' 'sizeBar';
-    
+    align-content: center;
     align-self: center;
-    width: 80%;
+    width: 100%;
 }
 
 button{
@@ -51,35 +51,45 @@ button{
     border-radius: 10px;
     display: inline-block;
     background-color: white;
+    justify-self: center;
 }
 
 #clear{
+    width: 50%;
     grid-area: 1/4/2/5;
 }
 
 #toBlack{
-
+    grid-area: 1/1/2/2;
+    width: 50%;
 }
 
-#random{
-
+#colorful{
+    grid-area: 1/3/2/4;
+    width: 50%;
 }
 
 #darken{
-
+    grid-area: 1/2/2/3;
+    width: 50%;
 }
 
 #sizeBar{
-    width: 95%;
-    height: 5px;
+    width: 85%;
+    height: 20px;
     border: 2px solid black;
-    grid-area: 2/2/3/5;
+    grid-area: 2/1/3/5;
     margin: 25px auto auto auto;
     padding: 0;
+    justify-self: center;
+    align-self: center;
+    text-justify: center;
+    text-align: center;
 }
 
 #sizeLabel{
     grid-area: 2/1/3/2;
     align-self: center;
+    justify-self: center;
     margin: 25px auto auto auto;
 }
