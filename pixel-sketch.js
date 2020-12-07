@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
-
+let rows = document.getElementById('gridSize');
+let cells = document.getElementsByClassName('cell');
 //const pixelCount = document.getElementById('sizeBar');
 
 const clearBtn = document.getElementById('clear');
@@ -13,6 +14,22 @@ const greyScale = document.getElementById('darken');
     //container.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
     //container.style.gridTemplateRows = `repeat(${width}, 1fr)`;
 //};
+
+function makeRows(rowNum){
+    for(r = 0; r < rowNum; r++){
+        let row = document.createElement("div");
+        container.appendChild(row).className = "gridRow";
+    };
+};
+
+function makeColumns(cellNum){
+    for(i = 0; i < rows.clientHeight; i++){
+        for(j =0; j < cellNum; j++){
+            let newCell = document.createElement("div");
+            rows[j].appendChild(newCell).className = "cell";
+        };
+    };
+};
 
 function blackCells(){
 
