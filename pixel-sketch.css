@@ -21,25 +21,31 @@ h1{
 
 #container{
     display: grid;
-    height: 700px;
-    width: 700px;
+    /*height: 700px;
+    width: 700px;*/
     align-self: auto;
     justify-self: center;
+    justify-content: center;
+    align-content: center;
     border: 5px solid red;
-    margin: auto;
     padding: 0;
     border-radius: 5px;
-    /*grid-template-columns: repeat(auto-fill, minmax(7px, 1fr));*/
-    /*grid-template-rows: repeat(auto-fill, minmax(7px, 1fr));*/
+    /*grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);*/
 }
 
 .cell{
-    border: 1px solid black;
+    border: 1px solid gray;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline-block;
+    margin-right: 3px;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
 }
 
 .gridRow{
-    border: 1px solid black;
-
 }
 
 .container{
