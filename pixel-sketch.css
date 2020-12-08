@@ -1,3 +1,8 @@
+:root{
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -21,28 +26,32 @@ h1{
 
 #container{
     display: grid;
-    /*height: 700px;
-    width: 700px;*/
+    /*grid-row-gap: 2px;
+    grid-column-gap: 2px;*/
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    height: auto;
+    width: auto;
     align-self: auto;
     justify-self: center;
     justify-content: center;
     align-content: center;
     border: 5px solid red;
     padding: 0;
-    border-radius: 5px;
-    /*grid-template-columns: repeat(auto-fit, 1fr);
-    grid-template-rows: repeat(auto-fit, 1fr);*/
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
 .cell{
     border: 1px solid gray;
-    min-width: 20px;
-    min-height: 20px;
+    /*min-width: 35px;
+    min-height: 35px;*/
     display: inline-block;
-    margin-right: 3px;
-    padding: 0;
+    margin: auto;
     justify-self: center;
     align-self: center;
+    padding: 1em;
+    border: 1px solid black;
 }
 
 .gridRow{

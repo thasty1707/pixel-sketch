@@ -1,7 +1,7 @@
 const container = document.getElementById('container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
-//const pixelCount = document.getElementById('sizeBar');
+//const gridSize = document.getElementById('gridSize').value;
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -15,7 +15,8 @@ const greyScale = document.getElementById('darken');
     //container.style.gridTemplateRows = `repeat(${width}, 1fr)`;
 //};
 
-defaultGrid();
+//These functions work but are a little difficult to use.
+//defaultGrid();
 
 function defaultGrid(){
     makeRows(16);
@@ -38,7 +39,18 @@ function makeColumns(cellNum){
     };
 };
 
+//New function attempt:
+makeGrid(20, 20);
 
+function makeGrid(rows,cols){
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for(c = 0; c < rows * cols; c++){
+        let cell = document.createElement("div");
+        //cell.innerText = (c + 1);
+        container.appendChild(cell).className = "cell";
+    };
+};
 
 function blackCells(){
 
