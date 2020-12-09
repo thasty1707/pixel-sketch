@@ -1,55 +1,40 @@
 const container = document.getElementById('container');
-let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
-//const gridSize = document.getElementById('gridSize').value;
+const gridSize = document.querySelector('#gridSize').value;
+const rows = document.querySelector('#gridSize').value;
+const cols = document.querySelector('#gridSize').value;
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
+const change = document.getElementById('submit');
 
-//Can this be helpful?
-//function gridLayout(height, width){
-    //const container = document.getElementById('container');
-    //container.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
-    //container.style.gridTemplateRows = `repeat(${width}, 1fr)`;
-//};
+//functions to fill container
 
-//These functions work but are a little difficult to use.
-//defaultGrid();
-
-function defaultGrid(){
-    makeRows(16);
-    makeColumns(16);
-}
-
-function makeRows(rowNum){
-    for(r = 0; r < rowNum; r++){
-        let row = document.createElement("div");
-        container.appendChild(row).className = "gridRow";
-    };
-};
-
-function makeColumns(cellNum){
-    for(i = 0; i < rows.length; i++){
-        for(j =0; j < cellNum; j++){
-            let newCell = document.createElement("div");
-            rows[j].appendChild(newCell).className = "cell";
-        };
-    };
-};
-
-//New function attempt:
-makeGrid(20, 20);
-
-function makeGrid(rows,cols){
+function defaultGrid(rows, cols){
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for(c = 0; c < rows * cols; c++){
         let cell = document.createElement("div");
-        //cell.innerText = (c + 1);
         container.appendChild(cell).className = "cell";
     };
+};
+
+function changeGrid(rows, cols){
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+
+    for(c = 0; c < rows * cols; c++){
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "cell";
+    };
+};
+
+function sketchPadSize(){
+    let boxes = container.querySelectorAll('div');
+    boxes.forEach(boxes => boxes.remove());
+    changeGrid(gridSize, gridSize);
 };
 
 function blackCells(){
@@ -71,3 +56,14 @@ function clearGrid(){
 function fillCells(){
 
 }
+
+let slider = document.getElementById('gridSize');
+let output = document.getElementById('pixelNumber');
+output.innerHTML = slider.value;
+
+slider.oninput = function(){
+    output.innerHTML = this.value;
+};
+
+container.addEventListener('onload',defaultGrid(16, 16));
+submit.addEventListener('onclick',sketchPadSize());
