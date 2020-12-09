@@ -1,8 +1,6 @@
 const container = document.getElementById('container');
 let cells = document.getElementsByClassName('cell');
 const gridSize = document.querySelector('#gridSize').value;
-const rows = document.querySelector('#gridSize').value;
-const cols = document.querySelector('#gridSize').value;
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -21,21 +19,21 @@ function defaultGrid(rows, cols){
     };
 };
 
-function changeGrid(rows, cols){
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
+function changeGrid(){
+    container.style.setProperty('--grid-rows', gridSize);
+    container.style.setProperty('--grid-cols', gridSize);
 
-    for(c = 0; c < rows * cols; c++){
+    for(c = 0; c < gridSize * gridSize; c++){
         let cell = document.createElement("div");
         container.appendChild(cell).className = "cell";
     };
 };
 
-function sketchPadSize(){
-    let boxes = container.querySelectorAll('div');
-    boxes.forEach(boxes => boxes.remove());
-    changeGrid(gridSize, gridSize);
-};
+//function sketchPadSize(){
+    //let boxes = container.querySelectorAll('div');
+    //boxes.forEach(boxes => boxes.remove());
+    //changeGrid(gridSize, gridSize);
+//};
 
 function blackCells(){
 
@@ -66,4 +64,5 @@ slider.oninput = function(){
 };
 
 container.addEventListener('onload',defaultGrid(16, 16));
-submit.addEventListener('onclick',sketchPadSize());
+slider.addEventListener('onchange',changeGrid());
+//submit.addEventListener('onclick',sketchPadSize());
