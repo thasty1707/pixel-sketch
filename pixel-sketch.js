@@ -1,6 +1,6 @@
 const container = document.getElementById('container');
 let cells = document.getElementsByClassName('cell');
-const gridSize = document.querySelector('#gridSize').value;
+const cellNumber = document.querySelector('#gridSize').value;
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -8,6 +8,13 @@ const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
 const change = document.getElementById('submit');
 
+let slider = document.getElementById('gridSize');
+let output = document.getElementById('pixelNumber');
+output.innerHTML = slider.value;
+
+slider.oninput = function(){
+    output.innerHTML = this.value;
+};
 //functions to fill container
 
 function defaultGrid(rows, cols){
@@ -15,18 +22,25 @@ function defaultGrid(rows, cols){
     container.style.setProperty('--grid-cols', cols);
     for(c = 0; c < rows * cols; c++){
         let cell = document.createElement("div");
+
         container.appendChild(cell).className = "cell";
     };
 };
 
 function changeGrid(){
-    container.style.setProperty('--grid-rows', gridSize);
-    container.style.setProperty('--grid-cols', gridSize);
-
-    for(c = 0; c < gridSize * gridSize; c++){
+    let cellNum = slider.value;
+    
+    for(c = 0; c < cellNum * cellNum; c++){
         let cell = document.createElement("div");
-        container.appendChild(cell).className = "cell";
+        //container.style.setProperty('--grid-rows', cellNum);
+        //container.style.setProperty('--grid-cols', cellNum);
+        container.style.gridTemplateColumns = `repat(${cellNum}, 1fr)`;
+        container.style.gridTemplateRows = `repat(${cellNum}, 1fr)`;
+        //container.appendChild(cell).className = "cell";
+        container.insertAdjacentElement('beforeend',cell);
     };
+
+    
 };
 
 //function sketchPadSize(){
@@ -55,14 +69,9 @@ function fillCells(){
 
 }
 
-let slider = document.getElementById('gridSize');
-let output = document.getElementById('pixelNumber');
-output.innerHTML = slider.value;
+//load with default size
+defaultGrid(16,16);
 
-slider.oninput = function(){
-    output.innerHTML = this.value;
-};
-
-container.addEventListener('onload',defaultGrid(16, 16));
-slider.addEventListener('onchange',changeGrid());
+//container.addEventListener('onload',defaultGrid(16, 16));
+slider.addEventListener('input',changeGrid());
 //submit.addEventListener('onclick',sketchPadSize());

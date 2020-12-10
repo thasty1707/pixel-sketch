@@ -6,19 +6,20 @@
 <body>
     <h1>Pixel Sketch by thasty1707</h1>
     <div id='sketchpad'> 
-        <div id='tools'>
+        <div id='sketchColors'>
             <button id='toBlack'>Black</button>
             <button id='darken'>Darken</button>
             <button id='colorful'>Random</button>
             <button id='clear'>Clear Sketch</button>
+        </div><br>
+        <div id="sizeTools">
             <p><label for='gridSize' id='sizeLabel'>Boxes per Side: </label> <span id="pixelNumber"></span></p>
             <!--<div id='sizeBar'>Number of Pixels</div> use bar to choose size?-->
             <!--<p id="sizeLabel">Number of boxes per side:</p>-->
             <input type="range" class='slider' id='gridSize'  min="16" max="100" value="16">
-            <!--<button id='submit'>Change Grid</button>-->
-
+            <button id='newGrid'>New Grid</button>
         </div>
-    
+        <br><br>
         <div id='container' class='container'>
 
         </div>

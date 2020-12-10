@@ -42,13 +42,12 @@ h1{
 
 .cell{
     border: 1px solid rgb(201, 201, 201);
-    /*min-width: 35px;
-    min-height: 35px;*/
     display: inline-block;
     margin: 0;
     justify-self: center;
     align-self: center;
     padding: 50%;
+    position: ;
 }
 
 .gridRow{
@@ -58,21 +57,29 @@ h1{
 
 }
 
-#tools{
+#sketchColors{
     display: grid;
     grid-template:
         'toBlack' 'darken' 'colorful' 'clear'
-        'empty' 'sizeLabel' 'grid-size' 'empty';
     align-content: center;
     align-self: center;
-    width: 100%;
+    width: 800px;
+}
+
+#sizeTools{
+    display: grid;
+    grid-template:
+        'sizeLabel' 'gridSize' 'gridSize' 'newGrid'
+    align-content: center;
+    align-self: center;
+    width: 800px;
 }
 
 button{
     margin: 5px;
     font-size: 16px;
     padding: 5px;
-    border: none;
+    border: 1px solid darkgrey;
     border-radius: 10px;
     display: inline-block;
     background-color: white;
@@ -101,20 +108,24 @@ button{
 
 #gridSize{
     font-size: 18px;
-    grid-area: 2/2/3/4;
+    grid-area: 1/2/2/4;
     justify-self: center;
     align-self: center;
-    width: 350px
+    width: 80%;
+}
+
+#newGrid{
+    grid-area: 1/4/2/5;
+    width: 50%;
 }
 
 #sizeLabel{
-    grid-area: 2/1/3/3;
+    grid-area: 1/1/2/3;
     justify-self: center;
     align-self: center;
 }
 
 #pixelNumber{
-    /*grid-area: 2/4/3/5;*/
     font-size: 18px;
     text-justify: center;
 }
