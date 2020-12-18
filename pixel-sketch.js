@@ -1,26 +1,26 @@
 const container = document.getElementById('container');
 let cells = document.getElementsByClassName('cell');
-const cellNumber = document.querySelector('#gridSize').value;
+//const cellNumber = document.querySelector('#gridSize').value;
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
-const change = document.getElementById('newGrid');
+const changeBttn = document.getElementById('newGrid');
 
 let slider = document.getElementById('gridSize');
 //let output = document.getElementById('pixelNumber');
 //output.innerHTML = slider.value;
 
-slider.oninput = function(){
-    output.innerHTML = this.value;
-};
-
 //functions to fill container
-function defaultGrid(rows, cols){
+function makeGrid(cellNumber){
+    let rows = cellNumber;
+    let cols = cellNumber;
+
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
-    for(c = 0; c < rows * cols; c++){
+
+    for(c = 1; c <= rows * cols; c++){
         let cell = document.createElement("div");
 
         container.appendChild(cell).className = "cell";
@@ -28,7 +28,10 @@ function defaultGrid(rows, cols){
 };
 
 function changeGrid(){
+    let box = container.querySelectorAll('div');
+    box.forEach(box => box.remove());
 
+    makeGrid(slider.value);
 };
 
 function sketchPadSize(){
@@ -56,6 +59,7 @@ function fillCells(){
 }
 
 //load with default size
-defaultGrid(16,16);
+makeGrid(16);
 
-//change.addEventListener('click',changeGrid());
+//Event listener to change grid size
+slider.addEventListener('oninput',changeGrid());

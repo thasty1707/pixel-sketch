@@ -80,10 +80,10 @@ button{
     margin: 5px;
     font-size: 16px;
     padding: 5px;
-    border: 1px solid darkgrey;
+    /*border: 1px solid darkgrey;
     border-radius: 10px;
     display: inline-block;
-    background-color: white;
+    background-color: white;*/
     justify-self: center;
     align-self: center;
 }
