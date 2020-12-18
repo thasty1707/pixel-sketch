@@ -9,8 +9,8 @@ const greyScale = document.getElementById('darken');
 const change = document.getElementById('newGrid');
 
 let slider = document.getElementById('gridSize');
-let output = document.getElementById('pixelNumber');
-output.innerHTML = slider.value;
+//let output = document.getElementById('pixelNumber');
+//output.innerHTML = slider.value;
 
 slider.oninput = function(){
     output.innerHTML = this.value;

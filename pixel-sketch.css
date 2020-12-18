@@ -109,13 +109,16 @@ button{
 }
 
 #gridSize{
-    font-size: 18px;
     grid-area: 1/2/2/4;
     justify-self: center;
     align-self: center;
-    width: 80%;
+    width: 100%;
+    height: 30px;
     margin: 5px;
+    transform: rotate(180deg);
 }
+
+
 
 #newGrid{
     grid-area: 1/4/2/5;
@@ -126,6 +129,7 @@ button{
     display: block;
     grid-area: 1/1/2/2;
     margin: auto;
+    text-align: center;
 }
 
 #pixelNumber{
