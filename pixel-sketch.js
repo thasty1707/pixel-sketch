@@ -22,7 +22,6 @@ function makeGrid(cellNumber){
 
     for(c = 1; c <= rows * cols; c++){
         let cell = document.createElement("div");
-
         container.appendChild(cell).className = "cell";
     };
 };
@@ -62,4 +61,3 @@ function fillCells(){
 makeGrid(16);
 
 //Event listener to change grid size
-slider.addEventListener('oninput',changeGrid());
