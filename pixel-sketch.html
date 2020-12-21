@@ -5,7 +5,8 @@
 </head>
 <body>
     <h1>Pixel Sketch by thasty1707</h1>
-    <div id='sketchpad'> 
+    <div id='sketchpad'>
+        <h2>Color Choices</h2>
         <div id='sketchColors'>
             <button id='toBlack'>Black</button>
             <button id='darken'>Darken</button>
@@ -15,9 +16,16 @@
         <div id='container' class='container'>
         </div>
         <br>
+        <h3>Grid Size</h3>
         <div id="sizeTools">
-            <label for='gridSize' id='sizeLabel'>Pixel Size: <br>(Small to Large) <span id="pixelNumber"></span> </label> 
-            <!--<input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16">
+            <button id=defaultSize>Default</button>
+            <button id=halfCellSize>32 x 32</button>
+            <button id=quarterCellSize>64 x 64</button>
+            <button id=extraSmall>85 x 85</button>
+            <button id=minCellSize>100 x 100</button>
+
+            <!--<label for='gridSize' id='sizeLabel'>Pixel Size: <br>(Small to Large) <span id="pixelNumber"></span> </label>           
+            <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16">
             <button id='newGrid'>New</button>-->
         </div>
     </div>

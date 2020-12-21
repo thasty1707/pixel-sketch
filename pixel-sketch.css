@@ -28,8 +28,8 @@ h1{
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), minmax(6px, 1fr));
     grid-template-columns: repeat(var(--grid-cols), minmax(6px, 1fr));
-    height: 650px;
-    width: 650px;
+    height: 500px;
+    width: 500px;
     align-self: auto;
     justify-self: center;
     justify-content: center;
