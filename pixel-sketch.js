@@ -1,19 +1,28 @@
+const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
 let cells = document.getElementsByClassName('cell');
-//const cellNumber = document.querySelector('#gridSize').value;
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
-const changeBttn = document.getElementById('newGrid');
+
+const defaultGrid = document.getElementById('defaultSize');
+const largeGrid = document.getElementById('halfCellSize');
 
 let slider = document.getElementById('gridSize');
 //let output = document.getElementById('pixelNumber');
 //output.innerHTML = slider.value;
 
+//function to empty container before changing size
+function clearGrid(){
+    container.style.removeProperty('--grid-rows');
+    container.style.removeProperty('--grid-cols');
+};
+
 //functions to fill container
 function makeGrid(cellNumber){
+    clearGrid();
     let rows = cellNumber;
     let cols = cellNumber;
 
@@ -26,11 +35,19 @@ function makeGrid(cellNumber){
     };
 };
 
-function changeGrid(){
-    let box = container.querySelectorAll('div');
-    box.forEach(box => box.remove());
+function defaultCellSize(){
+    clearGrid();
+    
+    let rows = 16;
+    let cols = 16;
 
-    makeGrid(slider.value);
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+
+    for(c = 1; c <= rows * cols; c++){
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "cell";
+    };
 };
 
 function sketchPadSize(){
@@ -58,6 +75,5 @@ function fillCells(){
 }
 
 //load with default size
-makeGrid(16);
+defaultCellSize(16);
 
-//Event listener to change grid size
