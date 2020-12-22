@@ -52,6 +52,8 @@ function defaultCellSize(){
         let cell = document.createElement("div");
         container.appendChild(cell).className = "cell";
     };
+
+    slider.value = 16;
 };
 
 function sketchPadSize(){

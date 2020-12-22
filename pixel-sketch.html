@@ -18,16 +18,9 @@
         <br>
         <h3>Grid Size</h3>
         <div id="sizeTools">
-            
+            <label for='gridSize' id='sizeLabel'>Pixel Size: <br>(Small to Large) <span id="pixelNumber"></span> </label>           
+            <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16" oninput=makeGrid(slider.value)>
             <button id=defaultSize onclick=defaultCellSize()>Default</button>
-            <button id=halfCellSize onclick=makeGrid(32)>32 x 32</button>
-            <button id=quarterCellSize onclick=makeGrid(64)>64 x 64</button>
-            <button id=extraSmall onclick=makeGrid(85)>85 x 85</button>
-            <button id=minCellSize onclick=makeGrid(100)>100 x 100</button>
-
-            <!--<label for='gridSize' id='sizeLabel'>Pixel Size: <br>(Small to Large) <span id="pixelNumber"></span> </label>           
-            <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16">
-            <button id='newGrid'>New</button>-->
         </div>
     </div>
 </body>
