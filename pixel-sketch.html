@@ -8,18 +8,18 @@
     <div id='sketchpad'>
         <h2>Color Choices</h2>
         <div id='sketchColors'>
-            <button id='toBlack'>Black</button>
+            <button id='toBlack' onclick='blackCells()'>Black</button>
             <button id='darken'>Darken</button>
             <button id='colorful'>Random</button>
-            <button id='clear'>Clear Sketch</button>
+            <button id='clear'>Clear</button>
         </div><br>
         <div id='container' class='container'>
         </div>
         <br>
         <h3>Grid Size</h3>
         <div id="sizeTools">
-            <label for='gridSize' id='sizeLabel'>Pixel Size: <br>(Small to Large) <span id="pixelNumber"></span> </label>           
-            <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16" oninput=makeGrid(slider.value)>
+            <label for='gridSize' id='sizeLabel'>Small to Large</label>           
+            <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16" onmouseup=makeGrid(slider.value)>
             <button id=defaultSize onclick=defaultCellSize()>Default</button>
         </div>
     </div>

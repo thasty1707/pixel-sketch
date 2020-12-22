@@ -1,6 +1,5 @@
 const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
-let squares = document.getElementsByClassName('cell');
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -36,6 +35,7 @@ function makeGrid(cellNumber){
     for(c = 1; c <= rows * cols; c++){
         let cell = document.createElement("div");
         container.appendChild(cell).className = "cell";
+        container.appendChild(cell).id = 'defaultSquares';
     };
 };
 
@@ -51,17 +51,14 @@ function defaultCellSize(){
     for(c = 1; c <= rows * cols; c++){
         let cell = document.createElement("div");
         container.appendChild(cell).className = "cell";
+        container.appendChild(cell).id = 'defaultSquares';
     };
 
     slider.value = 16;
 };
 
-function sketchPadSize(){
-
-};
-
 function blackCells(){
-
+   
 };
 
 function colorfulCells(){
