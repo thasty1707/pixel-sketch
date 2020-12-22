@@ -1,6 +1,6 @@
 const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
-let cells = document.getElementsByClassName('cell');
+let squares = document.getElementsByClassName('cell');
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -16,8 +16,12 @@ let slider = document.getElementById('gridSize');
 
 //function to empty container before changing size
 function clearGrid(){
-    container.style.removeProperty('--grid-rows');
-    container.style.removeProperty('--grid-cols');
+    var count = document.getElementById('container').childElementCount;
+
+    for(i = count; i > 0; i--){
+        let cell = container.querySelector('div');
+        container.removeChild(cell);
+    }
 };
 
 //functions to fill container
@@ -66,7 +70,7 @@ function darkenCells(){
 
 };
 
-function clearGrid(){
+function clearSketch(){
 
 };
 
@@ -76,4 +80,3 @@ function fillCells(){
 
 //load with default size
 defaultCellSize(16);
-
