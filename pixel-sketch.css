@@ -75,6 +75,7 @@ h1{
 #sizeTools{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
     align-content: center;
     align-self: center;
     width: 650px;
@@ -125,7 +126,7 @@ h3{
 }
 
 #defaultSize{
-    grid-area: 1/3/2/4;
+    grid-area: 2/2/3/3;
     width: 50%;
 }
 
