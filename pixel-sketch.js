@@ -1,5 +1,6 @@
 const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
+let color = 'black';
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -7,11 +8,8 @@ const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
 
 const defaultGrid = document.getElementById('defaultSize');
-const largeGrid = document.getElementById('halfCellSize');
 
 let slider = document.getElementById('gridSize');
-//let output = document.getElementById('pixelNumber');
-//output.innerHTML = slider.value;
 
 //function to empty container before changing size
 function clearGrid(){
@@ -23,7 +21,7 @@ function clearGrid(){
     }
 };
 
-//functions to fill container
+//function to change number of <div> elements in container
 function makeGrid(cellNumber){
     clearGrid();
     let rows = cellNumber;
@@ -36,9 +34,11 @@ function makeGrid(cellNumber){
         let cell = document.createElement("div");
         container.appendChild(cell).className = "cell";
         container.appendChild(cell).id = 'defaultSquares';
+        container.appendChild(cell).style = "background-color: white";
     };
 };
 
+//function to reset default container settings
 function defaultCellSize(){
     clearGrid();
     
@@ -52,30 +52,23 @@ function defaultCellSize(){
         let cell = document.createElement("div");
         container.appendChild(cell).className = "cell";
         container.appendChild(cell).id = 'defaultSquares';
+        container.appendChild(cell).style = "background-color: white";
     };
 
-    slider.value = 16;
+        slider.value = 16;
 };
 
-function blackCells(){
-   
+//to change cell color on mouseover
+
+
+function changeCellColor(){
+    let cells = container.querySelector('.cell');
+
+    
 };
-
-function colorfulCells(){
-
-};
-
-function darkenCells(){
-
-};
-
-function clearSketch(){
-
-};
-
-function fillCells(){
-
-}
 
 //load with default size
-defaultCellSize(16);
+makeGrid(16);
+
+document.getElementById('defaultSize').addEventListener('click',defaultCellSize);
+

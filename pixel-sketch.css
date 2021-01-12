@@ -13,7 +13,9 @@ body{
 
 h1{
     align-self: center;
-    margin: 0 auto auto auto;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
 }
 
@@ -47,14 +49,7 @@ h1{
     align-self: center;
     padding: 50%;
     position: relative;
-}
-
-#defaultSquares{
-    background-color: white;
-}
-
-#blackSquares:hover{
-    background-color:black;
+    background-color: ;
 }
 
 .container{
@@ -94,7 +89,10 @@ button{
 h2{
     align-self: center;
     text-align: center;
-    margin: 20px 0 0 0;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
     padding: 0;
 }
 
@@ -127,7 +125,7 @@ h3{
 
 #defaultSize{
     grid-area: 2/2/3/3;
-    width: 50%;
+    width: 30%;
 }
 
 /*style for slider, output, label, and new grid button*/

@@ -7,20 +7,19 @@
     <h1>Pixel Sketch by thasty1707</h1>
     <div id='sketchpad'>
         <h2>Color Choices</h2>
-        <div id='sketchColors'>
-            <button id='toBlack' onclick='blackCells()'>Black</button>
-            <button id='darken'>Darken</button>
-            <button id='colorful'>Random</button>
-            <button id='clear'>Clear</button>
-        </div><br>
+        <form id='sketchColors'>
+            <button type='button' id='toBlack'>Black</button>
+            <button type='button' id='darken'>Darken</button>
+            <button type='button' id='colorful'>Random</button>
+            <button type='button' id='clear'>Clear</button>
+        </form><br>
         <div id='container' class='container'>
         </div>
         <br>
         <h3>Pixel Size</h3>
         <div id="sizeTools">
-            <!--<label for='gridSize' id='sizeLabel'>Small to Large</label>-->
             <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16" onmouseup=makeGrid(slider.value)>
-            <button id=defaultSize onclick=defaultCellSize()>Reset</button>
+            <button type='button' id=defaultSize>Reset</button>
         </div>
     </div>
 </body>
