@@ -1,6 +1,5 @@
 const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
-let color = 'black';
 
 const clearBtn = document.getElementById('clear');
 const blackPixels = document.getElementById('toBlack');
@@ -10,6 +9,8 @@ const greyScale = document.getElementById('darken');
 const defaultGrid = document.getElementById('defaultSize');
 
 let slider = document.getElementById('gridSize');
+
+//var cellBackground = 'black';
 
 //function to empty container before changing size
 function clearGrid(){
@@ -31,10 +32,11 @@ function makeGrid(cellNumber){
     container.style.setProperty('--grid-cols', cols);
 
     for(c = 1; c <= rows * cols; c++){
-        let cell = document.createElement("div");
-        container.appendChild(cell).className = "cell";
-        container.appendChild(cell).id = 'defaultSquares';
-        container.appendChild(cell).style = "background-color: white";
+        let cells = document.createElement("div");
+        container.appendChild(cells).className = "cell";
+        container.appendChild(cells).id = 'defaultSquares';
+        container.appendChild(cells).style = "background-color: white";
+        container.appendChild(cells).addEventListener('mouseover',changeColor);
     };
 };
 
@@ -42,33 +44,22 @@ function makeGrid(cellNumber){
 function defaultCellSize(){
     clearGrid();
     
-    let rows = 16;
-    let cols = 16;
-
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-
-    for(c = 1; c <= rows * cols; c++){
-        let cell = document.createElement("div");
-        container.appendChild(cell).className = "cell";
-        container.appendChild(cell).id = 'defaultSquares';
-        container.appendChild(cell).style = "background-color: white";
-    };
-
-        slider.value = 16;
+    makeGrid(16);
+  
+    slider.value = 16;
 };
 
-//to change cell color on mouseover
-
-
-function changeCellColor(){
-    let cells = container.querySelector('.cell');
-
-    
+//function to change cell color with mouseover
+function changeColor(){
+    document.styleSheets[0].cssRules[0].style;
+    cell = container.getElementsByClassName(".cell");
+    cell.setProperty("background-color","black");
 };
 
 //load with default size
 makeGrid(16);
 
+//allows Reset button to return grid to default settings
 document.getElementById('defaultSize').addEventListener('click',defaultCellSize);
 
+//Event listeners to change cellColor variable
