@@ -10,8 +10,6 @@ const defaultGrid = document.getElementById('defaultSize');
 
 let slider = document.getElementById('gridSize');
 
-let cellBackground
-
 //function to empty container before changing size
 function clearGrid(){
     var count = document.getElementById('container').childElementCount;
@@ -51,13 +49,9 @@ function defaultCellSize(){
 
 //function to change cell color
 function changeColor(){
-    blackBackground();
-    this.style.backgroundColor = cellBackground;
+    this.style.backgroundColor = 'black';
 };
 
-function blackBackground(){
-    cellBackground = 'black';
-};
 
 //function to clear all cell background colors
 function clearColor(){
@@ -73,4 +67,4 @@ document.getElementById('defaultSize').addEventListener('click',defaultCellSize)
 
 //Event listeners that affect cell background colors
 clearBtn.addEventListener('click',clearColor);
-blackCells.addEventListener('click',blackBackground);
+//blackCells.addEventListener('click',blackBackground);
