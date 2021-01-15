@@ -35,9 +35,9 @@ function makeGrid(cellNumber){
         let cells = document.createElement("div");
         container.appendChild(cells).className = "cell";
         container.appendChild(cells).id = 'defaultSquares';
-        container.appendChild(cells).style = "background-color: white";
-        container.appendChild(cells).addEventListener('mouseover',changeColor);
     };
+    let cells = container.querySelectorAll('.cell');
+    cells.forEach(cell => cell.addEventListener('mouseover',changeColor));
 };
 
 //function to reset default container settings
@@ -49,11 +49,9 @@ function defaultCellSize(){
     slider.value = 16;
 };
 
-//function to change cell color with mouseover
-function changeColor(){
-    document.styleSheets[0].cssRules[0].style;
-    cell = container.getElementsByClassName(".cell");
-    cell.setProperty("background-color","black");
+//function to change cell color
+function changeColor(){    
+    this.style.backgroundColor = "black";
 };
 
 //load with default size

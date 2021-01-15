@@ -39,6 +39,7 @@ h1{
     padding: 0;
     margin: 20px auto auto auto;
     border-radius: 3px;
+    background-color:white;
 }
 
 .cell{
@@ -49,7 +50,7 @@ h1{
     align-self: center;
     padding: 50%;
     position: relative;
-    background-color: ;
+
 }
 
 .container{
