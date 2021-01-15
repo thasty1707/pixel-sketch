@@ -2,7 +2,7 @@ const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
 
 const clearBtn = document.getElementById('clear');
-const blackPixels = document.getElementById('toBlack');
+const blackCells = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
 
@@ -10,7 +10,7 @@ const defaultGrid = document.getElementById('defaultSize');
 
 let slider = document.getElementById('gridSize');
 
-//var cellBackground = 'black';
+let cellBackground
 
 //function to empty container before changing size
 function clearGrid(){
@@ -50,8 +50,19 @@ function defaultCellSize(){
 };
 
 //function to change cell color
-function changeColor(){    
-    this.style.backgroundColor = "black";
+function changeColor(){
+    blackBackground();
+    this.style.backgroundColor = cellBackground;
+};
+
+function blackBackground(){
+    cellBackground = 'black';
+};
+
+//function to clear all cell background colors
+function clearColor(){
+    let cells = container.querySelectorAll('.cell');
+    cells.forEach(cell => cell.style.backgroundColor = 'transparent');
 };
 
 //load with default size
@@ -60,4 +71,6 @@ makeGrid(16);
 //allows Reset button to return grid to default settings
 document.getElementById('defaultSize').addEventListener('click',defaultCellSize);
 
-//Event listeners to change cellColor variable
+//Event listeners that affect cell background colors
+clearBtn.addEventListener('click',clearColor);
+blackCells.addEventListener('click',blackBackground);
