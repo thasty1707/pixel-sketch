@@ -36,7 +36,6 @@ function makeGrid(cellNumber){
     for(c = 1; c <= rows * cols; c++){
         let cells = document.createElement("div");
         container.appendChild(cells).className = "cell";
-        container.appendChild(cells).id = 'defaultSquares';
     };
     let cells = container.querySelectorAll('.cell');
     cells.forEach(cell => cell.addEventListener('mouseenter',changeColor));
@@ -55,32 +54,26 @@ function defaultCellSize(){
 function changeColor(){
     switch(color){
         case 'rando':
-            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            //this.classList.remove('grey');
+            this.style.backgroundColor = `rgba(${Math.random() * 360}, ${Math.random() * 360}, ${Math.random() * 360},1)`;
             break;
         case 'grey':
-            if(this.style.backgroundColor.match(/rgba/)){
-                let currentOpacity = Number(this.style.backgroundColor.slice(-4,-1));
-                if(currentOpacity <= 0.9){
-                    this.style.backgroundColor = `rgba(0,0,0 ${currentOpactiy + 0.1})`;
-                    //this.classList.add('grey');
-                }
-            }else if(this.style.backgroundColor == 'rgb(0,0,0)'){
-                return;
-            }else{
-                this.style.backgroundColor = 'rgba(0,0,0,0.1)';
-            }
+            let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+            let i = 1;
+
+            while(i < 10){
+                this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
+
+                i++;
+            };
             break;
         case 'black':
-            this.style.backgroundColor = '#000000';
-            //this.calssList.remove('grey');
+            this.style.backgroundColor = 'rgba(0,0,0,1)';
             break;
         default:
             this.style.backgroundColor = color;
-            //this.classList.remove('grey');
             break;
         };
-    //this.style.backgroundColor = 'black';
+
 };
 
 //function to capture color chosen by user
