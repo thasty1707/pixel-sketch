@@ -12,7 +12,7 @@ const defaultGrid = document.getElementById('defaultSize');
 
 let slider = document.getElementById('gridSize');
 
-var color = 'black';
+var color = '#000000';
 
 //function to empty container of <div> elements before changing size
 function clearGrid(){
@@ -54,23 +54,29 @@ function defaultCellSize(){
 function changeColor(){
     switch(color){
         case 'rando':
-            this.style.backgroundColor = `rgba(${Math.random() * 360}, ${Math.random() * 360}, ${Math.random() * 360},1)`;
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            this.classList.remove('grey');
             break;
         case 'grey':
-            let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
-            let i = 1;
-
-            while(i < 10){
-                this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
-
-                i++;
+            if(this.style.backgroundColor.match(/rgba/)){
+                let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+                if(cellOpacity <= 0.9){
+                    this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
+                    this.classList.add('grey');
+                };
+            }else if(this.classList == 'grey' && this.style.backgroundColor == 'rgb(0, 0, 0)'){
+                return;
+            }else{
+                this.style.backgroundColor = `rgba(0,0,0,0.1)`;
             };
             break;
         case 'black':
-            this.style.backgroundColor = 'rgba(0,0,0,1)';
+            this.style.backgroundColor = '#000000';
+            this.classList.remove('grey');
             break;
         default:
             this.style.backgroundColor = color;
+            this.classList.remove('grey');
             break;
         };
 
