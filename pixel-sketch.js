@@ -6,11 +6,15 @@ const blackCells = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
 
+const colorBtns = document.querySelectorAll('button');
+
 const defaultGrid = document.getElementById('defaultSize');
 
 let slider = document.getElementById('gridSize');
 
-//function to empty container before changing size
+var color = 'black';
+
+//function to empty container of <div> elements before changing size
 function clearGrid(){
     var count = document.getElementById('container').childElementCount;
 
@@ -20,7 +24,7 @@ function clearGrid(){
     }
 };
 
-//function to change number of <div> elements in container
+//function to fill container with <div> elements
 function makeGrid(cellNumber){
     clearGrid();
     let rows = cellNumber;
@@ -35,10 +39,10 @@ function makeGrid(cellNumber){
         container.appendChild(cells).id = 'defaultSquares';
     };
     let cells = container.querySelectorAll('.cell');
-    cells.forEach(cell => cell.addEventListener('mouseover',changeColor));
+    cells.forEach(cell => cell.addEventListener('mouseenter',changeColor));
 };
 
-//function to reset default container settings
+//function to reset container to default settings
 function defaultCellSize(){
     clearGrid();
     
@@ -47,11 +51,52 @@ function defaultCellSize(){
     slider.value = 16;
 };
 
-//function to change cell color
+//function to change cell color on mouse event
 function changeColor(){
-    this.style.backgroundColor = 'black';
+    switch(color){
+        case 'rando':
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            //this.classList.remove('grey');
+            break;
+        case 'grey':
+            if(this.style.backgroundColor.match(/rgba/)){
+                let currentOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+                if(currentOpacity <= 0.9){
+                    this.style.backgroundColor = `rgba(0,0,0 ${currentOpactiy + 0.1})`;
+                    //this.classList.add('grey');
+                }
+            }else if(this.style.backgroundColor == 'rgb(0,0,0)'){
+                return;
+            }else{
+                this.style.backgroundColor = 'rgba(0,0,0,0.1)';
+            }
+            break;
+        case 'black':
+            this.style.backgroundColor = '#000000';
+            //this.calssList.remove('grey');
+            break;
+        default:
+            this.style.backgroundColor = color;
+            //this.classList.remove('grey');
+            break;
+        };
+    //this.style.backgroundColor = 'black';
 };
 
+//function to capture color chosen by user
+function chosenColor(event){
+    switch(event.target.dataset.color){
+        case 'rando':
+            color = 'rando';
+            break;
+        case 'grey':
+            color = 'grey';
+            break;
+        default:
+            color = 'black';
+            break;
+    };
+};
 
 //function to clear all cell background colors
 function clearColor(){
@@ -67,4 +112,4 @@ document.getElementById('defaultSize').addEventListener('click',defaultCellSize)
 
 //Event listeners that affect cell background colors
 clearBtn.addEventListener('click',clearColor);
-//blackCells.addEventListener('click',blackBackground);
+colorBtns.forEach(colorBtn => colorBtn.addEventListener('click',chosenColor));
