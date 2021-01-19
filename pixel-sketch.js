@@ -58,17 +58,32 @@ function changeColor(){
             this.classList.remove('grey');
             break;
         case 'grey':
-            if(this.style.backgroundColor.match(/rgba/)){
-                let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
-                if(cellOpacity <= 0.9){
-                    this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
-                    this.classList.add('grey');
-                };
-            }else if(this.classList == 'grey' && this.style.backgroundColor == 'rgb(0, 0, 0)'){
+            let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1)); 
+
+            if(this.classList == 'cell grey' && cellOpacity == 1){
                 return;
+            }else if(cellOpacity < 1){
+                this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
             }else{
                 this.style.backgroundColor = `rgba(0,0,0,0.1)`;
+                this.classList.add('grey');
             };
+                
+        // if(this.style.backgroundColor.match(/rgba/)){
+            //     let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+            //     if(cellOpacity <= 0.9){
+            //         this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
+            //         this.classList.add('grey');
+            //     }else{
+            //         return;
+            //     };
+            // }else if(this.style.backgroundColor === 'rgb(0,0,0)'){
+                
+            //     return;
+            // }else{
+            //     this.style.backgroundColor = `rgba(0,0,0,0.1)`;
+            //     this.classList.add('grey');
+            // };
             break;
         case 'black':
             this.style.backgroundColor = '#000000';
@@ -101,6 +116,7 @@ function chosenColor(event){
 function clearColor(){
     let cells = container.querySelectorAll('.cell');
     cells.forEach(cell => cell.style.backgroundColor = 'transparent');
+    cells.forEach(cell => cell.classList.remove('grey'));
 };
 
 //load with default size
