@@ -5,6 +5,7 @@ const clearBtn = document.getElementById('clear');
 const blackCells = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
 const greyScale = document.getElementById('darken');
+const newGrid = document.getElementById('newGrid');
 
 const colorBtns = document.querySelectorAll('button');
 
@@ -41,6 +42,22 @@ function makeGrid(cellNumber){
     cells.forEach(cell => cell.addEventListener('mouseenter',changeColor));
 };
 
+function makeNewGrid(){
+    clearGrid();
+    let rows = prompt("How many pixels per side? (max: 100)");
+    let cols = rows;
+
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+
+    for(c = 1; c <= rows * cols; c++){
+        let cells = document.createElement("div");
+        container.appendChild(cells).className = "cell";
+    };
+    let cells = container.querySelectorAll('.cell');
+    cells.forEach(cell => cell.addEventListener('mouseenter',changeColor));
+};
+
 //function to reset container to default settings
 function defaultCellSize(){
     clearGrid();
@@ -58,32 +75,18 @@ function changeColor(){
             this.classList.remove('grey');
             break;
         case 'grey':
-            let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1)); 
-
-            if(this.classList == 'cell grey' && cellOpacity == 1){
+        if(this.style.backgroundColor.match(/rgba/)){
+                let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+                if(cellOpacity <= 0.9){
+                    this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
+                    this.classList.add('grey');
+                };
+            }else if(this.style.backgroundColor === 'rgb(0,0,0)' && this.classList == 'cell grey'){
                 return;
-            }else if(cellOpacity < 1){
-                this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
             }else{
                 this.style.backgroundColor = `rgba(0,0,0,0.1)`;
                 this.classList.add('grey');
             };
-                
-        // if(this.style.backgroundColor.match(/rgba/)){
-            //     let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
-            //     if(cellOpacity <= 0.9){
-            //         this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
-            //         this.classList.add('grey');
-            //     }else{
-            //         return;
-            //     };
-            // }else if(this.style.backgroundColor === 'rgb(0,0,0)'){
-                
-            //     return;
-            // }else{
-            //     this.style.backgroundColor = `rgba(0,0,0,0.1)`;
-            //     this.classList.add('grey');
-            // };
             break;
         case 'black':
             this.style.backgroundColor = '#000000';
@@ -128,3 +131,4 @@ document.getElementById('defaultSize').addEventListener('click',defaultCellSize)
 //Event listeners that affect cell background colors
 clearBtn.addEventListener('click',clearColor);
 colorBtns.forEach(colorBtn => colorBtn.addEventListener('click',chosenColor));
+newGrid.addEventListener('click',makeNewGrid);
