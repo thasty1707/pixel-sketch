@@ -10,7 +10,10 @@
     <h1>Pixel Sketch
         <p id='byLine'>by thasty1707</p>
     </h1>
-    <button type='button' id='newGrid'>New Sketch</button>
+    <div id="sizeTools">
+        <button type='button' id='newGrid'>New Sketch</button>
+        <button type='button' id='defaultSketch'>Reset</button>
+    </div>
     <div id='container' class='container'>
     </div>
         <h2>Color Choices</h2>
@@ -20,11 +23,6 @@
             <button type='button' class="colorButton" data-color="rando" id='colorful'>Random<br>Pixels</button>
             <button type='button' id='clear'>Clear<br>Colors</button>
         </form>
-        <!-- <h3>Pixel Size</h3> -->
-        <div id="sizeTools">
-            <!-- <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16" onmouseup=makeGrid(slider.value)> -->
-            <button type='button' id='defaultSketch'>Reset Sketch</button>
-        </div>
     </div>
 </body>
 <script src="pixel-sketch.js"></script>

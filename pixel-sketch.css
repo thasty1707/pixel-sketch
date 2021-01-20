@@ -8,7 +8,7 @@ body{
     flex-direction: column;
     margin: auto;
     width: 80vw;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(80, 80, 80);
 }
 
 h1{
@@ -75,16 +75,16 @@ h1{
     justify-self: center;
     width: 600px;
     padding-top: 10px;
-    width: 550px
+    width: 550px;
 }
 
 #sizeTools{
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     align-content: center;
     align-self: center;
     width: 500px;
+    margin: 15px auto 15px auto;
 }
 
 button{
@@ -121,9 +121,10 @@ h2{
 #clear:hover{
     background: transparent;
     color: white;
-    font-size: 18px;
-    transition: 0.1s;
-    width: 100px;
+    transform: scale(1.2);
+    transition: 0.3s;
+    border: 1px solid white;
+    border-radius: 0%;
 }
 
 #toBlack{
@@ -134,9 +135,10 @@ h2{
 #toBlack:hover{
     background: black;
     color: whitesmoke;
-    font-size: 18px;
-    transition: 0.1s;
-    width: 100px;
+    transform: scale(1.2);
+    transition: 0.3s;
+    border: 1px solid white;
+    border-radius: 0%;
 }
 
 #colorful{
@@ -147,9 +149,10 @@ h2{
 #colorful:hover{
     background: linear-gradient(to right,yellow,blue,red,green,purple, orange);
     color: whitesmoke;
-    font-size: 18px;
-    transition: 0.1s;
-    width: 100px;
+    transform: scale(1.2);
+    transition: 0.3s;
+    border: 1px solid white;
+    border-radius: 0%;
 }
 
 #shades{
@@ -158,19 +161,13 @@ h2{
 }
 
 #shades:hover{
-    background: linear-gradient(to right,rgba(0,0,0,0.1) 15%,rgba(0,0,0,0.3) ,rgba(0,0,0,0.5),rgba(0,0,0,0.8));
+    background: linear-gradient(to right,rgb(200, 200, 200) 10%,rgb(130,130,130) 40%,rgb(80,80,80) 60%,rgb(0,0,0) 90%);
     color: white;
-    font-size: 18px;
-    transition: 0.1s;
-    width: 100px;
+    transform: scale(1.2);
+    transition: 0.3s;
+    border: 1px solid white;
+    border-radius: 0%;
 }
-
-/* h3{
-    align-self: center;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-} */
 
 #defaultSketch{
     grid-area: 2/2/3/3;
@@ -179,35 +176,19 @@ h2{
 }
 
 #defaultSketch:hover{
-    font-size: 18px;
-    transition: 0.1s;
-    width: 145px;
+    transform: scale(1.2);
+    transition: 0.3s;
+    border-radius: 0%;
 }
-
-/*style for slider, output, label, and new grid button*/
-#gridSize{
-    grid-area: 1/2/2/3;
-    justify-self: center;
-    align-self: center;
-    width: 500px;
-    /* height: 30px; */
-    /* margin: 5px; */
-}
-
-/* #sizeLabel{
-    display: block;
-    grid-area: 1/1/2/2;
-    margin: auto;
-    text-align: center;
-} */
 
 #newGrid{
+    grid-area: 1/1/2/2;
     width: 130px;
-    margin: 10px auto 0 auto;
+    margin: 0 auto 0 auto;
 }
 
 #newGrid:hover{
-    font-size: 18px;
+    transform: scale(1.2);
     transition: 0.1s;
-    width: 145px;
+    border-radius: 0%;
 }

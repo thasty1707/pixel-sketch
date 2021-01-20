@@ -13,6 +13,7 @@ const defaultGrid = document.getElementById('defaultSketch');
 
 let slider = document.getElementById('gridSize');
 
+//color variable for cell background
 var color = '#000000';
 
 //function to empty container of <div> elements before changing size
@@ -75,11 +76,9 @@ function defaultCellSize(){
     clearGrid();
     
     makeGrid(16);
-  
-    // slider.value = 16;
 };
 
-//function to change cell color on mouse event
+//function to apply color choice on mouse event
 function changeColor(){
     switch(color){
         case 'rando':
@@ -112,7 +111,7 @@ function changeColor(){
 
 };
 
-//function to capture color chosen by user
+//function to capture color choice
 function chosenColor(event){
     switch(event.target.dataset.color){
         case 'rando':
@@ -134,10 +133,10 @@ function clearColor(){
     cells.forEach(cell => cell.classList.remove('grey'));
 };
 
-//load with default size
+//load sketch with default size
 makeGrid(16);
 
-//allows Reset button to return grid to default settings
+//Event Listener for Reset button to return sketch to default settings
 document.getElementById('defaultSketch').addEventListener('click',defaultCellSize);
 
 //Event listeners that affect cell background colors
