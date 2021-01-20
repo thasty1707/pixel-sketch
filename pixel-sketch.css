@@ -8,15 +8,29 @@ body{
     flex-direction: column;
     margin: auto;
     width: 80vw;
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(124, 124, 124);
 }
 
 h1{
+    width: 550px;
     align-self: center;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    margin: 20px auto 0 auto;
+    padding: 3px 3px 0 3px;
+    color: whitesmoke;
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 40px;
+}
+
+#byLine{
+    color: whitesmoke;
+    font-family: 'Yusei Magic', sans-serif;
+    width: 550px;
+    align-self: center;
+    text-align: center;
+    margin-top: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 #sketchpad{
@@ -35,7 +49,7 @@ h1{
     width: 500px;
     align-self: auto;
     justify-self: center;
-    border: 25px solid rgba(255, 0, 0, 0.829);
+    border: 25px solid rgba(255, 0, 0, 0.9);
     padding: 0;
     margin: 20px auto auto auto;
     border-radius: 3px;
@@ -64,7 +78,9 @@ h1{
     align-self: center;
     justify-self: center;
     width: 600px;
-    margin-top: 10px;
+    padding-top: 10px;
+    /* background-color: rgba(245, 245, 245, 0.75); */
+    width: 550px
 }
 
 #sizeTools{
@@ -73,17 +89,18 @@ h1{
     grid-template-rows: 1fr 1fr;
     align-content: center;
     align-self: center;
-    width: 650px;
-    margin: 10px;
-    padding: 10px;
+    width: 500px;
+    /* margin: 10px;
+    padding: 10px; */
 }
 
 button{
     margin: auto;
     font-size: 16px;
-    padding: 5px;
+    padding: 5px 5px 5px 0;
     justify-self: center;
     align-self: center;
+    border-radius: 10px;
 }
 
 h2{
@@ -93,39 +110,47 @@ h2{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
-    padding: 0;
+    padding: 10px 10px 0 10px;
+    color: rgb(0, 255, 242);
+    text-decoration:underline;
+    /* background-color: rgba(245, 245, 245, 0.75); */
+    width: 500px;
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 26px;
 }
 
 #clear{
-    width: 50%;
     grid-area: 1/4/2/5;
+    width: 90px;
 }
 
 #toBlack{
     grid-area: 1/1/2/2;
-    width: 50%;
+    width: 90px;
+
 }
 
 #colorful{
     grid-area: 1/3/2/4;
-    width: 50%;
+    width: 90px;
 }
 
 #darken{
     grid-area: 1/2/2/3;
-    width: 50%;
+    width: 90px;
 }
 
-h3{
+/* h3{
     align-self: center;
     text-align: center;
     margin: 0;
     padding: 0;
-}
+} */
 
 #defaultSize{
     grid-area: 2/2/3/3;
-    width: 30%;
+    width: 130px;
+    margin: 0 auto 0 auto;
 }
 
 /*style for slider, output, label, and new grid button*/
@@ -133,15 +158,19 @@ h3{
     grid-area: 1/2/2/3;
     justify-self: center;
     align-self: center;
-    width: 100%;
-    height: 30px;
-    margin: 5px;
+    width: 500px;
+    /* height: 30px; */
+    /* margin: 5px; */
 }
 
-#sizeLabel{
+/* #sizeLabel{
     display: block;
     grid-area: 1/1/2/2;
     margin: auto;
     text-align: center;
-}
+} */
 
+#newGrid{
+    width: 130px;
+    margin: 10px auto 0 auto;
+}

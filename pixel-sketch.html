@@ -2,22 +2,23 @@
 <head>
     <link rel="stylesheet" href="pixel-sketch.css">
     <title>Pixel Sketch Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Pixel Sketch by thasty1707</h1>
-    <div id='sketchpad'>
-        <button type='button' id='newGrid'>New Sketch</button>
-        <div id='container' class='container'>
-        </div>
+    <h1>Pixel Sketch
+        <p id='byLine'>by thasty1707</p>
+    </h1>
+    <button type='button' id='newGrid'>New Sketch</button>
+    <div id='container' class='container'>
+    </div>
         <h2>Color Choices</h2>
         <form id='sketchColors' class="colorChoices">
-            <button type='button' class="colorButton" data-color="black" id='toBlack'>Black</button>
-            <button type='button' class="colorButton" data-color="grey" id='darken'>Darken</button>
-            <button type='button' class="colorButton" data-color="rando" id='colorful'>Random</button>
-            <button type='button' id='clear'>Clear</button>
-        </form><br>
-        
-        <br>
+            <button type='button' class="colorButton" data-color="black" id='toBlack'>Black Pixels</button>
+            <button type='button' class="colorButton" data-color="grey" id='darken'>Shade Pixels</button>
+            <button type='button' class="colorButton" data-color="rando" id='colorful'>Random Pixels</button>
+            <button type='button' id='clear'>Clear Sketch</button>
+        </form>
         <!-- <h3>Pixel Size</h3> -->
         <div id="sizeTools">
             <!-- <input type="range" class='slider' id='gridSize' name='sizer'  min="16" max="100" value="16" onmouseup=makeGrid(slider.value)> -->

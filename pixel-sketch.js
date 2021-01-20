@@ -42,13 +42,14 @@ function makeGrid(cellNumber){
     cells.forEach(cell => cell.addEventListener('mouseenter',changeColor));
 };
 
-function makeNewGrid(){
+function makeNewGrid(cellNumber){
     clearGrid();
-    let rows = prompt("How many pixels per side? (max: 100)");
+    let rows = cellNumber;
     let cols = rows;
 
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
+
 
     for(c = 1; c <= rows * cols; c++){
         let cells = document.createElement("div");
@@ -56,6 +57,17 @@ function makeNewGrid(){
     };
     let cells = container.querySelectorAll('.cell');
     cells.forEach(cell => cell.addEventListener('mouseenter',changeColor));
+};
+
+function newPixels(){
+    let pixels = Number(prompt("How many pixels per side (min 16, max 100)?","16"))
+
+    if(pixels < 16 || pixels > 100){
+        alert("Invalid number. Please choose from 16 to 100 pixels.");
+        return;
+    }else{
+        makeGrid(pixels);
+    };
 };
 
 //function to reset container to default settings
@@ -81,7 +93,7 @@ function changeColor(){
                     this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
                     this.classList.add('grey');
                 };
-            }else if(this.style.backgroundColor === 'rgb(0,0,0)' && this.classList == 'cell grey'){
+            }else if(this.style.backgroundColor === 'rgb(0,0,0)' && this.classList === 'cell grey'){
                 return;
             }else{
                 this.style.backgroundColor = `rgba(0,0,0,0.1)`;
@@ -131,4 +143,4 @@ document.getElementById('defaultSize').addEventListener('click',defaultCellSize)
 //Event listeners that affect cell background colors
 clearBtn.addEventListener('click',clearColor);
 colorBtns.forEach(colorBtn => colorBtn.addEventListener('click',chosenColor));
-newGrid.addEventListener('click',makeNewGrid);
+newGrid.addEventListener('click',newPixels);
