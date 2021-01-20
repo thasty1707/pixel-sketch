@@ -1,17 +1,16 @@
 const body = document.querySelectorAll('body');
 const container = document.getElementById('container');
 
-const clearBtn = document.getElementById('clear');
-const blackCells = document.getElementById('toBlack');
-const randomColors = document.getElementById('colorful');
-const greyScale = document.getElementById('shades');
 const newGrid = document.getElementById('newGrid');
+const defaultGrid = document.getElementById('defaultSketch');
+const blackCells = document.getElementById('toBlack');
+const greyScale = document.getElementById('shades');
+const randomColors = document.getElementById('colorful');
+const clearBtn = document.getElementById('clear');
 
 const colorBtns = document.querySelectorAll('button');
 
-const defaultGrid = document.getElementById('defaultSketch');
 
-let slider = document.getElementById('gridSize');
 
 //color variable for cell background
 var color = '#000000';
