@@ -66,10 +66,6 @@ h1{
     position: relative;
 }
 
-.container{
-
-}
-
 #sketchColors{
     display: grid;
     grid-template:
@@ -79,7 +75,6 @@ h1{
     justify-self: center;
     width: 600px;
     padding-top: 10px;
-    /* background-color: rgba(245, 245, 245, 0.75); */
     width: 550px
 }
 
@@ -90,8 +85,6 @@ h1{
     align-content: center;
     align-self: center;
     width: 500px;
-    /* margin: 10px;
-    padding: 10px; */
 }
 
 button{
@@ -101,6 +94,8 @@ button{
     justify-self: center;
     align-self: center;
     border-radius: 10px;
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 15px;
 }
 
 h2{
@@ -111,9 +106,8 @@ h2{
     margin-right: auto;
     margin-bottom: 0;
     padding: 10px 10px 0 10px;
-    color: rgb(0, 255, 242);
+    color: whitesmoke;
     text-decoration:underline;
-    /* background-color: rgba(245, 245, 245, 0.75); */
     width: 500px;
     font-family: 'Yusei Magic', sans-serif;
     font-size: 26px;
@@ -124,10 +118,25 @@ h2{
     width: 90px;
 }
 
+#clear:hover{
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    transition: 0.1s;
+    width: 100px;
+}
+
 #toBlack{
     grid-area: 1/1/2/2;
     width: 90px;
+}
 
+#toBlack:hover{
+    background: black;
+    color: whitesmoke;
+    font-size: 18px;
+    transition: 0.1s;
+    width: 100px;
 }
 
 #colorful{
@@ -135,9 +144,25 @@ h2{
     width: 90px;
 }
 
-#darken{
+#colorful:hover{
+    background: linear-gradient(to right,yellow,blue,red,green,purple, orange);
+    color: whitesmoke;
+    font-size: 18px;
+    transition: 0.1s;
+    width: 100px;
+}
+
+#shades{
     grid-area: 1/2/2/3;
     width: 90px;
+}
+
+#shades:hover{
+    background: linear-gradient(to right,rgba(0,0,0,0.1) 15%,rgba(0,0,0,0.3) ,rgba(0,0,0,0.5),rgba(0,0,0,0.8));
+    color: white;
+    font-size: 18px;
+    transition: 0.1s;
+    width: 100px;
 }
 
 /* h3{
@@ -147,10 +172,16 @@ h2{
     padding: 0;
 } */
 
-#defaultSize{
+#defaultSketch{
     grid-area: 2/2/3/3;
     width: 130px;
     margin: 0 auto 0 auto;
+}
+
+#defaultSketch:hover{
+    font-size: 18px;
+    transition: 0.1s;
+    width: 145px;
 }
 
 /*style for slider, output, label, and new grid button*/
@@ -173,4 +204,10 @@ h2{
 #newGrid{
     width: 130px;
     margin: 10px auto 0 auto;
+}
+
+#newGrid:hover{
+    font-size: 18px;
+    transition: 0.1s;
+    width: 145px;
 }

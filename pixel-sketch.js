@@ -4,12 +4,12 @@ const container = document.getElementById('container');
 const clearBtn = document.getElementById('clear');
 const blackCells = document.getElementById('toBlack');
 const randomColors = document.getElementById('colorful');
-const greyScale = document.getElementById('darken');
+const greyScale = document.getElementById('shades');
 const newGrid = document.getElementById('newGrid');
 
 const colorBtns = document.querySelectorAll('button');
 
-const defaultGrid = document.getElementById('defaultSize');
+const defaultGrid = document.getElementById('defaultSketch');
 
 let slider = document.getElementById('gridSize');
 
@@ -76,7 +76,7 @@ function defaultCellSize(){
     
     makeGrid(16);
   
-    slider.value = 16;
+    // slider.value = 16;
 };
 
 //function to change cell color on mouse event
@@ -138,7 +138,7 @@ function clearColor(){
 makeGrid(16);
 
 //allows Reset button to return grid to default settings
-document.getElementById('defaultSize').addEventListener('click',defaultCellSize);
+document.getElementById('defaultSketch').addEventListener('click',defaultCellSize);
 
 //Event listeners that affect cell background colors
 clearBtn.addEventListener('click',clearColor);
