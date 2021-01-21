@@ -81,22 +81,42 @@ function defaultCellSize(){
 function changeColor(){
     switch(color){
         case 'rando':
-            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            this.style.backgroundColor = `rgb(${Math.random() * 360}, ${Math.random() * 360}, ${Math.random() * 360})`;
             this.classList.remove('grey');
             break;
         case 'grey':
-        if(this.style.backgroundColor.match(/rgba/)){
-                let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
-                if(cellOpacity <= 0.9){
-                    this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
-                    this.classList.add('grey');
-                };
-            }else if(this.style.backgroundColor === 'rgb(0,0,0)' && this.classList === 'cell grey'){
-                return;
-            }else{
-                this.style.backgroundColor = `rgba(0,0,0,0.1)`;
+            //this.style.backgroundColor = "rgba(0, 0, 0, 0.1";
+            cellColor = window.getComputedStyle(this,null).getPropertyValue("background-color");
+            colorParts = Number(cellColor.match(/[\d.]+/g));
+            
+            // if(colorParts.length === 3){
+            //     colorParts.push(0.1);
+            // };
+
+            if(this.classList ==! 'cell grey'){
+                this.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
                 this.classList.add('grey');
-            };
+            }else if(colorParts[4] <= 0.9){
+                this.style.backgroundColor = "rgba(0, 0, 0, ${colorParts[4] + 0.1})"
+            }else{
+                return;
+            }
+
+
+            console.log(colorParts);
+
+        // if(this.style.backgroundColor.match(/rgba/)){
+        //         let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+        //         if(cellOpacity <= 0.9){
+        //             this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
+        //             this.classList.add('grey');
+        //         };
+        //     }else if(this.style.backgroundColor === 'rgb(0,0,0)' && this.classList === 'cell grey'){
+        //         return;
+        //     }else{
+        //         this.style.backgroundColor = `rgba(0,0,0,0.1)`;
+        //         this.classList.add('grey');
+        //     };
             break;
         case 'black':
             this.style.backgroundColor = '#000000';
@@ -108,6 +128,29 @@ function changeColor(){
             break;
         };
 
+};
+
+function shadingCells (){
+    cell = container.querySelector('div');
+    cellColor = window.getComputedStyle(cell,null).getPropertyValue("background-color");
+    console.log(cellColor);
+    
+    // elements = Array.isArray(elements) ? elements : [elements];
+
+    // elements.forEach(element => {
+    //     const value = getComputedStyle(element).getPropertyValue("background-color");
+    //     const parts = value.match(/[\d.]+/g);
+    //     if(parts.length === 3){
+    //         parts.push(0.1)
+    //     };
+        
+    //     parts[3] = Math.min(1,Math.max(0, parseFloat(parts[3]) + change));
+        
+    //     element.innerText = parts[3].toFixed[2];
+
+    //     cells.style.backgroundColor = `rgba(${parts.join(',')})`;
+    // });
+    
 };
 
 //function to capture color choice
@@ -142,3 +185,4 @@ document.getElementById('defaultSketch').addEventListener('click',defaultCellSiz
 clearBtn.addEventListener('click',clearColor);
 colorBtns.forEach(colorBtn => colorBtn.addEventListener('click',chosenColor));
 newGrid.addEventListener('click',newPixels);
+greyScale.addEventListener('click',shadingCells);
