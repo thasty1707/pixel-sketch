@@ -89,29 +89,15 @@ function changeColor(){
             let colorParts = cellColor.match(/[\d.]+/g);
             let colorOpacity = Number(cellColor.slice(-4,-1));          
            
-            if(colorOpacity <= 0.9){
+            if(colorParts.length === 3 && this.classList[1] === 'grey'){
+                return;
+            }else if(colorOpacity <= 0.9){
                 this.style.backgroundColor = `rgba(0,0,0, ${colorOpacity + 0.1})`;
-            }else if(this.style.backgroundColor === `rgb(0,0,0)` && this.classList[1] === 'grey'){
                 return;
             }else{
                 this.style.backgroundColor = `rgba(0, 0, 0, 0.1)`;
                 this.classList.add('grey');
             };
-
-            console.log(cellColor, this.classList[1]);
-
-        // if(this.style.backgroundColor.match(/rgba/)){
-        //         let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
-        //         if(cellOpacity <= 0.9){
-        //             this.style.backgroundColor = `rgba(0,0,0, ${cellOpacity + 0.1})`;
-        //             this.classList.add('grey');
-        //         };
-        //     }else if(this.style.backgroundColor === 'rgb(0,0,0)' && this.classList === 'cell grey'){
-        //         return;
-        //     }else{
-        //         this.style.backgroundColor = `rgba(0,0,0,0.1)`;
-        //         this.classList.add('grey');
-        //     };
             break;
         case 'black':
             this.style.backgroundColor = '#000000';
@@ -180,4 +166,3 @@ document.getElementById('defaultSketch').addEventListener('click',defaultCellSiz
 clearBtn.addEventListener('click',clearColor);
 colorBtns.forEach(colorBtn => colorBtn.addEventListener('click',chosenColor));
 newGrid.addEventListener('click',newPixels);
-greyScale.addEventListener('click',shadingCells);
