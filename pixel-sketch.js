@@ -85,25 +85,20 @@ function changeColor(){
             this.classList.remove('grey');
             break;
         case 'grey':
-            //this.style.backgroundColor = "rgba(0, 0, 0, 0.1";
-            cellColor = window.getComputedStyle(this,null).getPropertyValue("background-color");
-            colorParts = Number(cellColor.match(/[\d.]+/g));
-            
-            // if(colorParts.length === 3){
-            //     colorParts.push(0.1);
-            // };
-
-            if(this.classList ==! 'cell grey'){
-                this.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-                this.classList.add('grey');
-            }else if(colorParts[4] <= 0.9){
-                this.style.backgroundColor = "rgba(0, 0, 0, ${colorParts[4] + 0.1})"
-            }else{
+            let cellColor = window.getComputedStyle(this,null).getPropertyValue("background-color");
+            let colorParts = cellColor.match(/[\d.]+/g);
+            let colorOpacity = Number(cellColor.slice(-4,-1));          
+           
+            if(colorOpacity <= 0.9){
+                this.style.backgroundColor = `rgba(0,0,0, ${colorOpacity + 0.1})`;
+            }else if(this.style.backgroundColor === `rgb(0,0,0)` && this.classList[1] === 'grey'){
                 return;
-            }
+            }else{
+                this.style.backgroundColor = `rgba(0, 0, 0, 0.1)`;
+                this.classList.add('grey');
+            };
 
-
-            console.log(colorParts);
+            console.log(cellColor, this.classList[1]);
 
         // if(this.style.backgroundColor.match(/rgba/)){
         //         let cellOpacity = Number(this.style.backgroundColor.slice(-4,-1));
