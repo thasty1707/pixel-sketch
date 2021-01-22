@@ -111,29 +111,6 @@ function changeColor(){
 
 };
 
-function shadingCells (){
-    cell = container.querySelector('div');
-    cellColor = window.getComputedStyle(cell,null).getPropertyValue("background-color");
-    console.log(cellColor);
-    
-    // elements = Array.isArray(elements) ? elements : [elements];
-
-    // elements.forEach(element => {
-    //     const value = getComputedStyle(element).getPropertyValue("background-color");
-    //     const parts = value.match(/[\d.]+/g);
-    //     if(parts.length === 3){
-    //         parts.push(0.1)
-    //     };
-        
-    //     parts[3] = Math.min(1,Math.max(0, parseFloat(parts[3]) + change));
-        
-    //     element.innerText = parts[3].toFixed[2];
-
-    //     cells.style.backgroundColor = `rgba(${parts.join(',')})`;
-    // });
-    
-};
-
 //function to capture color choice
 function chosenColor(event){
     switch(event.target.dataset.color){
